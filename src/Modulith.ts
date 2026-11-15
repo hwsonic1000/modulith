@@ -1,13 +1,17 @@
+import { FileSystem } from "./filesystem/FileSystem";
+
 export interface ModulithOptions {
     // Configuration options will go here.
 }
 
 export class Modulith {
-    constructor(options: ModulithOptions = {}) {
-        console.log("Modulith created.");
+    public fs: FileSystem;
+
+    constructor() {
+        this.fs = new FileSystem();
     }
 
-    async initialize(): Promise<void> {
-        console.log("Modulith initialized.");
+    async initialize() {
+        await this.fs.initialize();
     }
 }
